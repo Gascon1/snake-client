@@ -10,8 +10,11 @@ const connect = () => {
   
   conn.on('connect', () => {
    console.log('Server connection established.');
-   conn.write('Name: 000')
+   conn.write('Name: MKL');
   });
+  // conn.on('connect', () => {
+  //   setInterval(() => {conn.write('Move: up')}, 100);
+  // });
 
   conn.on('data', (data) => {
     console.log('Message from server: ', data);
