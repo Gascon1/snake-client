@@ -1,4 +1,5 @@
 let connection;
+
 const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
@@ -7,11 +8,10 @@ const setupInput = function(conn) {
   stdin.resume();
   
   stdin.on('data', handleUserInput)
-  return stdin;
+  // why do we have a return here??
+  // return stdin;
 }
-// need to ask question about why we put the callback here, and why is it formatted this way.
 const handleUserInput = (key) => {
-  console.log(key);
   if (key ==='\u0003') {
     process.exit();
   }
@@ -27,6 +27,9 @@ const handleUserInput = (key) => {
   }
   if (key ==='d') {
     connection.write('Move: right');
+  }
+  if (key ==='j') {
+    connection.write('Say: just fucking read');
   }
 }
 
